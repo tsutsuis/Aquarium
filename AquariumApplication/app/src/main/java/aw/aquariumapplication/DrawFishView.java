@@ -18,43 +18,62 @@ import java.util.ArrayList;
  * Created by misato on 2015/08/18.
  */
 public class DrawFishView extends View {
+
+    public static Bitmap bitmap;
+    private Canvas canvas;
     private Paint paint;
     private Path path;
-    public static Bitmap bitmap = null;
+    private int width;
+    private int height;
 
     public DrawFishView(Context context, AttributeSet attrs) {
         super(context,attrs);
+
         this.path = new Path();
         this.paint = new Paint();
 
-        this.paint.setColor(Color.BLACK);
+        /* ペンの初期設定 */
+        //線で描く
         this.paint.setStyle(Paint.Style.STROKE);
-        // 線を滑らかに描画できるように設定
-        this.paint.setAntiAlias(true);
+        //線の太さを指定
         this.paint.setStrokeWidth(10);
+        //色を設定
+        this.paint.setColor(Color.BLACK);
+        //端点を丸く
+        this.paint.setStrokeCap(Paint.Cap.ROUND);
+        //つなぎ目を丸く
+        this.paint.setStrokeJoin(Paint.Join.ROUND);
+        //線を滑らかに書く
+        this.paint.setAntiAlias(true);
+    }
 
-        // キャッシュを取得する設定にする
-        setDrawingCacheEnabled(true);
+    //ペンの色をセット
+    public void setPen(int color) {
+        this.paint.setColor(color);
+    }
+
+    // お絵かきリセット
+    public void reset() {
+        this.path.reset();
+        this.bitmap = null;
+        onSizeChanged(this.width, this.height, 0, 0);
+        invalidate();
     }
 
     @SuppressLint("DrawAllocation")
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-
-        /* 魚型のキャンバス作成 */
-
-//        // パスの開始地点（横・縦）
-//        this.path.moveTo(150, 200);
-//        // しっぽの部分（横・縦）
-//        this.path.lineTo(250, 300);
-//        this.path.lineTo(150, 400);
-//        this.path.lineTo(150, 200);
-//        // 胴体の部分（左・上・右・下）
-//        this.path.addOval(new RectF(250, 200, 550, 400), Path.Direction.CW);
-//
-//        canvas.clipPath(this.path);
+        canvas.drawBitmap(this.bitmap, 0, 0, null);
         canvas.drawPath(this.path, this.paint);
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        this.width = w;
+        this.height = h;
+        super.onSizeChanged(w, h, oldw, oldh);
+        this.bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+        this.canvas = new Canvas(this.bitmap);
     }
 
     @Override
@@ -65,22 +84,27 @@ public class DrawFishView extends View {
         switch (event.getAction()) {
             // タッチしたとき
             case MotionEvent.ACTION_DOWN:
+                this.path.reset();
                 this.path.moveTo(x, y);
+                invalidate();
                 break;
             // タッチしたまま動かしたとき
             case MotionEvent.ACTION_MOVE:
                 this.path.lineTo(x, y);
+                invalidate();
                 break;
             // 指を離したとき
             case MotionEvent.ACTION_UP:
                 this.path.lineTo(x, y);
-                // キャッシュからbitmapを作成
-                bitmap = Bitmap.createBitmap(getDrawingCache());
+                // オフスクリーン・キャンバス（を通して、それに紐付くビットマップ）にパスを描画
+                this.canvas.drawPath(this.path, this.paint);
+                /* リセットすることで、invalidate を呼び出し後の onDraw では drawPath では何も描画されず、
+                 全てオフスクリーンキャンバスのビットマップから描画される */
+                this.path.reset();
+                invalidate();
                 break;
         }
 
-        // 再描画（onDraw()メソッドが実行される）
-        invalidate();
         return true;
     }
 }

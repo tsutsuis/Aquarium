@@ -29,6 +29,6 @@ public class SwimFishView extends View {
         super.onDraw(canvas);
 
         // 書いた魚を縮小して表示
-        canvas.drawBitmap(Bitmap.createScaledBitmap(this.bitmap, 100, 100, false), 0, 0, null);
+        canvas.drawBitmap(Bitmap.createScaledBitmap(this.bitmap, 250, 100, false), 0, 0, null);
     }
 }
