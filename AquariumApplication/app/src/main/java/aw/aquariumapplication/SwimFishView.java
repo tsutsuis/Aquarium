@@ -15,7 +15,6 @@ import android.view.View;
 public class SwimFishView extends View {
 
     private Bitmap bitmap = null;
-    private Paint paint = new Paint();
 
     public SwimFishView(Context context) {
         super(context);

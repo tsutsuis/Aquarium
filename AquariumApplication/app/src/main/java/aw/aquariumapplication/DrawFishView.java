@@ -29,6 +29,7 @@ public class DrawFishView extends View {
 
         this.paint.setColor(Color.BLACK);
         this.paint.setStyle(Paint.Style.STROKE);
+        // 線を滑らかに描画できるように設定
         this.paint.setAntiAlias(true);
         this.paint.setStrokeWidth(10);
 
@@ -73,11 +74,10 @@ public class DrawFishView extends View {
             // 指を離したとき
             case MotionEvent.ACTION_UP:
                 this.path.lineTo(x, y);
+                // キャッシュからbitmapを作成
+                bitmap = Bitmap.createBitmap(getDrawingCache());
                 break;
         }
-
-        // キャッシュからbitmapを作成
-        bitmap = Bitmap.createBitmap(getDrawingCache());
 
         // 再描画（onDraw()メソッドが実行される）
         invalidate();
