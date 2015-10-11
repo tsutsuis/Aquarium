@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/swimfish_layout"
+    android:background="@drawable/back">
+
+    <view
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        class="aw.aquariumapplication.SwimFishView"
+        android:id="@+id/swimfishview" />
+</RelativeLayout>

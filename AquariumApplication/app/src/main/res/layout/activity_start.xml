@@ -30,15 +30,16 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start"
+        android:text="@string/start_button"
         android:id="@+id/startbutton"
-        android:background="#64edd6"
+        android:background="#70cee0"
         android:textSize="20dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
         android:nestedScrollingEnabled="false"
-        android:onClick="startButtonClick" />
+        android:onClick="startButtonClick"
+        android:layout_marginBottom="70dp"
+        android:padding="10dp" />
 
     <ImageView
         android:layout_width="match_parent"

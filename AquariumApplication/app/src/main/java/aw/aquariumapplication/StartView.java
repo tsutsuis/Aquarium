@@ -6,10 +6,6 @@ import android.view.View;
 
 public class StartView extends View {
 
-    public StartView(Context context) {
-        super(context);
-    }
-
     public StartView(Context context, AttributeSet attrs) {
         super(context,attrs);
     }
