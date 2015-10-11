@@ -7,20 +7,17 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    // お絵かき画面
     private DrawFishView drawFishView = null;
+    // 水槽画面
     private SwimFishView swimFishView = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 
-        this.drawFishView = (DrawFishView)findViewById(R.id.fishView);
-		findViewById(R.id.redButton).setOnClickListener(setRedPen);
-        findViewById(R.id.blueButton).setOnClickListener(setBluePen);
-        findViewById(R.id.yellowButton).setOnClickListener(setYellowPen);
-        findViewById(R.id.blackButton).setOnClickListener(setBlackPen);
-        findViewById(R.id.resetButton).setOnClickListener(resetButtonClick);
+        // スタート画面を表示
+        setContentView(R.layout.activity_start);
 	}
 
 	View.OnClickListener setRedPen = new View.OnClickListener() {
@@ -47,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    // リセットボタン押下
     View.OnClickListener resetButtonClick = new View.OnClickListener() {
         public void onClick(View view) {
             drawFishView.reset();
@@ -55,8 +53,21 @@ public class MainActivity extends AppCompatActivity {
 
 	// OKボタン押下
 	public void okButtonClick(View view) {
+        // 水槽画面を表示
 		this.swimFishView = new SwimFishView(this);
         this.swimFishView.setBitMap(DrawFishView.bitmap);
         setContentView(this.swimFishView);
 	}
+
+    // スタートボタン押下
+    public void startButtonClick(View view) {
+        // お絵かき画面を表示
+        setContentView(R.layout.activity_drawfish);
+        this.drawFishView = (DrawFishView)findViewById(R.id.fishView);
+		findViewById(R.id.redButton).setOnClickListener(setRedPen);
+        findViewById(R.id.blueButton).setOnClickListener(setBluePen);
+        findViewById(R.id.yellowButton).setOnClickListener(setYellowPen);
+        findViewById(R.id.blackButton).setOnClickListener(setBlackPen);
+        findViewById(R.id.resetButton).setOnClickListener(resetButtonClick);
+    }
 }
