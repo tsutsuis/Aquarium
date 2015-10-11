@@ -37,15 +37,15 @@ public class MainActivity extends AppCompatActivity {
     // お絵かき画面：OKボタン押下
     public void okButtonClick(View view) {
 
-        // 水槽画面を表示
-//        this.swimFishView = new SwimFishView(this);
-//        this.swimFishView.setBitMap(DrawFishView.bitmap);
-        //setContentView(this.swimFishView);
-
         setContentView(R.layout.activity_swimfish);
         this.swimFishView = (SwimFishView)findViewById(R.id.swimfishview);
-        //this.swimFishView.setBitMap(DrawFishView.bitmap);
-        this.swimFishView.setBitMap(bitmap);
+        this.swimFishView.setBitMap(DrawFishView.bitmap);
+    }
+
+    // 水槽画面：もどるボタン押下
+    public void backStartButtonClick(View view) {
+
+        setContentView(R.layout.activity_start);
     }
 
     View.OnClickListener setRedPen = new View.OnClickListener() {

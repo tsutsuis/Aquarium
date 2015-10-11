@@ -10,4 +10,32 @@
         android:layout_height="fill_parent"
         class="aw.aquariumapplication.SwimFishView"
         android:id="@+id/swimfishview" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_button"
+        android:id="@+id/draw_fish_button"
+        android:background="#70cee0"
+        android:textSize="20dp"
+        android:nestedScrollingEnabled="false"
+        android:onClick="startButtonClick"
+        android:padding="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/back_start_button"
+        android:layout_toStartOf="@+id/back_start_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back_start_button"
+        android:id="@+id/back_start_button"
+        android:background="#e09dd5"
+        android:textSize="20dp"
+        android:nestedScrollingEnabled="false"
+        android:onClick="backStartButtonClick"
+        android:padding="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
