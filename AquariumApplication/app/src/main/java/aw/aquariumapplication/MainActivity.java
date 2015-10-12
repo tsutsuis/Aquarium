@@ -7,6 +7,10 @@ import android.view.View;
 
 import static aw.aquariumapplication.DrawFishView.bitmap;
 
+import java.util.Timer;
+import java.util.TimerTask;
+import android.os.Handler;
+
 public class MainActivity extends AppCompatActivity {
 
     // お絵かき画面
@@ -14,13 +18,18 @@ public class MainActivity extends AppCompatActivity {
     // 水槽画面
     private SwimFishView swimFishView = null;
 
+    // ハンドラ
+    private Handler handler = null;
+    private final static long MSES = 10;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
         // スタート画面を表示
         setContentView(R.layout.activity_start);
-	}
+
+    }
 
     // スタート画面：スタートボタン押下
     public void startButtonClick(View view) {
@@ -40,6 +49,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_swimfish);
         this.swimFishView = (SwimFishView)findViewById(R.id.swimfishview);
         this.swimFishView.setBitMap(DrawFishView.bitmap);
+
+        // タイマーセット
+        Timer timer = new Timer(false);
+        this.handler = new Handler();
+
+        // MSESミリ秒おきにタスクを実行
+        timer.schedule(new TimerTask() {
+            public void run() {
+                handler.post(new Runnable() {
+                    public void run() {
+                        // ビューを再描画
+                        swimFishView.invalidate();
+                    }
+                });
+            }
+        }, 0, MSES);
     }
 
     // 水槽画面：もどるボタン押下
@@ -78,5 +103,4 @@ public class MainActivity extends AppCompatActivity {
             drawFishView.reset();
         }
     };
-
 }
