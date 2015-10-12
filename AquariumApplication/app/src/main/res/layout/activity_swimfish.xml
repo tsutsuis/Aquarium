@@ -3,14 +3,16 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:id="@+id/swimfish_layout"
-    android:background="@drawable/sea3">
+    android:background="@drawable/ocean3">
 
     <view
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         class="aw.aquariumapplication.SwimFishView"
         android:id="@+id/swimfishview"
-        android:layout_below="@+id/draw_fish_button" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -22,10 +24,13 @@
         android:nestedScrollingEnabled="false"
         android:onClick="startButtonClick"
         android:padding="10dp"
-        android:layout_alignParentTop="true"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="34dp"
+        android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/back_start_button"
         android:layout_toStartOf="@+id/back_start_button"
-        android:textColor="#FFFFFF" />
+        android:layout_marginRight="87dp"
+        android:layout_marginEnd="87dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -37,8 +42,10 @@
         android:nestedScrollingEnabled="false"
         android:onClick="backStartButtonClick"
         android:padding="10dp"
-        android:layout_alignParentTop="true"
+        android:textColor="#FFFFFF"
+        android:layout_marginRight="84dp"
+        android:layout_marginEnd="84dp"
+        android:layout_alignTop="@+id/draw_fish_button"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="#FFFFFF" />
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

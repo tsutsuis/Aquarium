@@ -5,16 +5,16 @@
     android:transitionGroup="false"
     tools:context=".MainActivity"
     android:id="@+id/startlayout"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/ocean1">
 
     <view
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         class="aw.aquariumapplication.StartView"
         android:id="@+id/startview"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@drawable/sea1"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true" />
 
@@ -38,14 +38,11 @@
         android:layout_height="wrap_content"
         android:text="@string/start_title"
         android:id="@+id/titleSub"
-        android:layout_below="@+id/titlewhite"
-        android:layout_alignBottom="@+id/titleBlue"
-        android:layout_alignLeft="@+id/startbutton"
-        android:layout_alignStart="@+id/startbutton"
         android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        android:layout_marginLeft="20dp"
-        android:textStyle="italic" />
+        android:textSize="15dp"
+        android:textStyle="italic"
+        android:layout_below="@+id/titlewhite"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -54,7 +51,9 @@
         android:src="@drawable/white_title"
         android:foreground="@drawable/blue_title"
         android:layout_alignTop="@+id/titleBlue"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -65,6 +64,6 @@
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="true"
         android:paddingBottom="50dp"
-        android:layout_margin="10dp" />
+        android:layout_marginRight="10dp" />
 
 </RelativeLayout>
