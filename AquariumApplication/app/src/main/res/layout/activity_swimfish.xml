@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:id="@+id/swimfish_layout"
-    android:background="@drawable/back">
+    android:background="@drawable/sea3">
 
     <view
         android:layout_width="fill_parent"
@@ -17,26 +17,28 @@
         android:layout_height="wrap_content"
         android:text="@string/start_button"
         android:id="@+id/draw_fish_button"
-        android:background="#70cee0"
+        android:background="@drawable/shape_blue"
         android:textSize="20dp"
         android:nestedScrollingEnabled="false"
         android:onClick="startButtonClick"
         android:padding="10dp"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/back_start_button"
-        android:layout_toStartOf="@+id/back_start_button" />
+        android:layout_toStartOf="@+id/back_start_button"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/back_start_button"
         android:id="@+id/back_start_button"
-        android:background="#e09dd5"
+        android:background="@drawable/shape_green"
         android:textSize="20dp"
         android:nestedScrollingEnabled="false"
         android:onClick="backStartButtonClick"
         android:padding="10dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textColor="#FFFFFF" />
 </RelativeLayout>

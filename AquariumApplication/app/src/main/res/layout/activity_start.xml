@@ -14,42 +14,57 @@
         android:id="@+id/startview"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@drawable/back"
+        android:background="@drawable/sea1"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true" />
-    <!--<aw.aquariumapplication.StartView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/startview"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:background="@drawable/back"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentBottom="true" />-->
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/start_button"
         android:id="@+id/startbutton"
-        android:background="#70cee0"
+        android:background="@drawable/shape_blue"
         android:textSize="20dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:nestedScrollingEnabled="false"
         android:onClick="startButtonClick"
         android:layout_marginBottom="70dp"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_title"
+        android:id="@+id/titleSub"
+        android:layout_below="@+id/titlewhite"
+        android:layout_alignBottom="@+id/titleBlue"
+        android:layout_alignLeft="@+id/startbutton"
+        android:layout_alignStart="@+id/startbutton"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:textStyle="italic" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/titlewhite"
+        android:src="@drawable/white_title"
+        android:foreground="@drawable/blue_title"
+        android:layout_alignTop="@+id/titleBlue"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/titleAquarium"
-        android:src="@drawable/aqtitle"
+        android:id="@+id/titleBlue"
+        android:src="@drawable/blue_title"
         android:layout_above="@+id/startbutton"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentLeft="false"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp" />
+        android:paddingBottom="50dp"
+        android:layout_margin="10dp" />
 
 </RelativeLayout>
