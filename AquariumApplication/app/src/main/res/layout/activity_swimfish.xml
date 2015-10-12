@@ -9,7 +9,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         class="aw.aquariumapplication.SwimFishView"
-        android:id="@+id/swimfishview" />
+        android:id="@+id/swimfishview"
+        android:layout_below="@+id/draw_fish_button" />
 
     <Button
         android:layout_width="wrap_content"
