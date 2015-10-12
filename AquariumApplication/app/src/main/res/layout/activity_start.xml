@@ -33,23 +33,12 @@
         android:padding="10dp"
         android:textColor="#FFFFFF" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/start_title"
-        android:id="@+id/titleSub"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp"
-        android:textStyle="italic"
-        android:layout_below="@+id/titlewhite"
-        android:layout_centerHorizontal="true" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/titlewhite"
-        android:src="@drawable/white_title"
-        android:foreground="@drawable/blue_title"
+        android:src="@drawable/title_white"
+        android:foreground="@drawable/title_blue"
         android:layout_alignTop="@+id/titleBlue"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
@@ -59,11 +48,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/titleBlue"
-        android:src="@drawable/blue_title"
+        android:src="@drawable/title_blue"
         android:layout_above="@+id/startbutton"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="true"
         android:paddingBottom="50dp"
         android:layout_marginRight="10dp" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleKana"
+        android:src="@drawable/title_kana"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
