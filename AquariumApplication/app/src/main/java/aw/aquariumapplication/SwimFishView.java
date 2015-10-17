@@ -73,8 +73,8 @@ public class SwimFishView extends View {
     private void initialize(Canvas canvas) {
 
         // 画面サイズによって魚の移動量を算出
-        this.fishVX = canvas.getWidth() / 100;
-        this.fishVY = canvas.getHeight() / 200;
+        this.fishVX = canvas.getWidth() / 200;
+        this.fishVY = canvas.getHeight() / 700;
 
         // 画面サイズによって魚を縮小
         int fishSizeX = canvas.getWidth() / 3;
